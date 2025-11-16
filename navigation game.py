@@ -17,7 +17,7 @@ def tip1():
 
 w = Tk()
 w.geometry("640x480")  
-w.title("stupid navigation game")
+w.title("stupid quiz type game")
 
 lives = 4
 #below is to make the lvl(x) variables global, so that the next level automatically closes the previous
@@ -31,6 +31,10 @@ def incorrect():
     lifechecksum()
     lives-=1
     tkinter.messagebox.showinfo("WRONG","-1 life")
+def addlife():#currently unused 
+    global lives
+    tkinter.messagebox.showinfo("NICE ONE","+1 life")
+    lives+=1
 def lifechecksum():
     global lives
     print("you have "+str(lives)+" lives left")
@@ -49,7 +53,6 @@ def nextchallenge1():
     wisebutton=Button(lvl1, text="I dont let you win but i can tell you that one of the other two is lying, ", command=tip1).pack(pady=40)
 def nextchallenge2():
     global lvl1, lvl2, lives
-    lifechecksum()
     lvl1.destroy()    
     tkinter.messagebox.showinfo("'insert happy music'", "next challange( is also very VERY simple)")
     lvl2 = Toplevel(w)
@@ -59,7 +62,6 @@ def nextchallenge2():
     Button(lvl2, text="you progress if you click this button",command=nextchallenge3).pack(pady=20)
 def nextchallenge3():
     global lvl2, lvl3,lives
-    lifechecksum()
     lvl2.destroy()
     lvl3 = Toplevel(w)
     lvl3.geometry("640x480")
@@ -69,7 +71,7 @@ def nextchallenge3():
     for sane in range (0, 12):
         print(sane)
         Label(lvl3, text= "this is text " ).pack(pady=10)
-    Label(lvl3, text= "This is a bunch of text designed to make you wonder how to progress  but then you realised you had to resize with windo").pack(pady=10)
+    Label(lvl3, text= "This is a bunch of text designed to make you wonder how to progress  but then you realised you had to resize the window").pack(pady=10)
     Button(lvl3, text="there we go!",command=nextchallange4).pack(pady=0)
     
 def nextchallange4():
