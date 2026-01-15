@@ -1,6 +1,6 @@
 from tkinter import*
 from tkinter.ttk import*
-#from gamedata import*
+from gamedata import*
 import tkinter.messagebox
 #created by notwebmaker, 
 def gotem():

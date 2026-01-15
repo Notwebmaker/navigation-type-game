@@ -29,6 +29,10 @@ def guigame1():
 
     flag=True
     text_surface=placeholdertext.render('welcome to the graphical levels!,',False,'black')
+    abouttext1=placeholdertext.render("created by notwebmaker",False,"black")
+    abouttext2=placeholdertext.render("graphics- notwebmaker and johnny b(not real name)",False,"black")
+    abouttext3=placeholdertext.render("inspired by The impossible quiz by splapp me do and other puzzle games",False,"black")
+
     #question1 text
     question1=questiontext.render('Is this quiz finished?',False,'black')
     #question2 text
@@ -162,7 +166,13 @@ def guigame1():
             start_button.draw()
             whomadethiscrap.draw()
             screen.blit(text_surface, (220,370))
-
+        if whomadethiscrap.isClicked():
+            showStartImage=False
+            screen.blit(quizquestion_surface,(0,0))
+            start_button.draw()
+            screen.blit(abouttext1,(150,100))
+            screen.blit(abouttext2,(150,125))
+            screen.blit(abouttext3,(150,150))
         
         if start_button.isClicked():
             pygame.display.set_caption('question 1')
@@ -266,10 +276,11 @@ def guigame1():
             screen.blit(option2q7, (120,240))
             screen.blit(option3q7, (520,240))
             screen.blit(option4q7, (520,340))
-        if notwebmaker.isClicked():
+        if notwebmaker.isClicked() and disableques7button==False:
+            disableques7button=True
             pygame.display.set_caption ("you win! (for now, more questions and puzzles coming soon)")
             screen.blit(quizquestion_surface, (0,0))
-            screen.blit(victoryscreen)
+            screen.blit(victoryscreen,(0,0))
 
             
 
@@ -293,8 +304,6 @@ def guigame1():
             
             incorrect()
 
-        if whomadethiscrap.isClicked():
-            print("this is supposed to open a txt window of about")
 
         pygame.display.update()
         clock.tick(60)
