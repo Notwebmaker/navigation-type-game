@@ -1,5 +1,6 @@
 from tkinter import*
 from tkinter.ttk import*
+#from gamedata import*
 import tkinter.messagebox
 #created by notwebmaker, 
 def gotem():
@@ -14,7 +15,7 @@ def tip1():
     w.destroy()
     tkinter.messagebox.showinfo("Tip","Just because it says the truth does not mean it is the correct answer")
 
-
+#test()
 w = Tk()
 w.geometry("640x480")  
 w.title("stupid quiz type game")
@@ -68,11 +69,12 @@ def nextchallenge3():
     lvl3.title("Challenge 3")
 
     print("sanity check")
+    Label(lvl3, text= "hmm if only you can reveal more of the window ").pack(side=TOP,pady=10)
+
     for sane in range (0, 12):
         print(sane)
-        Label(lvl3, text= "this is text " ).pack(pady=10)
-    Label(lvl3, text= "This is a bunch of text designed to make you wonder how to progress  but then you realised you had to resize the window").pack(pady=10)
-    Button(lvl3, text="there we go!",command=nextchallange4).pack(pady=0)
+        Label(lvl3, text= "You will never find the hidden button HAHAHAHA " ).pack(pady=10)
+    Button(lvl3, text="oh shoot",command=nextchallange4).pack(pady=0)
     
 def nextchallange4():
     global lvl3, lvl4,lives
@@ -100,15 +102,16 @@ def nextchallange5():
     lvl5=Toplevel(w)
     lvl5.geometry('1920x1080')
     print("what tf")
-    Button(lvl5, text='i am yet to design this level so here you go!', command=youwin).pack(pady=2)
+    Button(lvl5, text='click here to continue', command=guigame1).pack(pady=2)
+    Button(lvl5, text='alternativley click here for a chnace to gain a life!(does not work, do not click)', command=guigame1).pack(pady=2)
 
 
 
     
 Label(w, text="A stupid adventure game, navigate to the end!").pack(pady=10)
 Label(w, text="made by notwebmaker.").pack(pady=10)
-Button(w, text="Start",width=32, command=gotem).pack(side=TOP,pady=30)
-Button(w, text="close game", command=nextchallenge1).pack(side=BOTTOM)
+Button(w, text="'Start'",width=32, command=gotem).pack(side=TOP,pady=30)
+Button(w, text="real start", command=nextchallenge1).pack(side=BOTTOM)
 
 
 w.mainloop()
